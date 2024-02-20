@@ -14,6 +14,7 @@ class Snake:
     # we will create a new list called 'snakes'. No need to make one outside the class.
     self.snakes = []
     self.create_snake()
+    
 
 
   def create_snake(self):
@@ -27,6 +28,7 @@ class Snake:
 
 
   def move(self):
+    # creating 3 blocks and making them move
     # for segment in range(start=(len(snakes) - 1), stop = 0, step = -1)
     for segment in range((len(self.snakes) - 1), 0, -1):
       new_x = self.snakes[segment - 1].xcor()
