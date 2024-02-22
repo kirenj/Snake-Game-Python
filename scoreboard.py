@@ -2,6 +2,7 @@ from turtle import Turtle
 
 ALIGNMENT = 'Center'
 FONT = ('Ariel', 8, 'bold')
+F_FONT = ('Ariel', 15, 'bold')
 
 class Scoreboard(Turtle):
 
@@ -14,6 +15,9 @@ class Scoreboard(Turtle):
     self.score = 0
     self.write(f"Score: {self.score}", align=ALIGNMENT, font=FONT)
     
+  def game_over(self):
+    self.goto(x=0, y=0)
+    self.write("GAME OVER", align=ALIGNMENT, font=F_FONT)
     
     
   def score_count(self):   

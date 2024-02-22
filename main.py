@@ -35,10 +35,21 @@ while game_is_on is True:
   # Detect collision with food
   if snake.snakes[0].distance(food) < 15:
     score.score_count()
+    snake.extend()
     food.refresh()
     
+  # Detect collision with wall  
+  if snake.snakes[0].xcor() > 285 or snake.snakes[0].xcor() < -285 or snake.snakes[0].ycor() > 285 or snake.snakes[0].ycor() < -285:
+    game_is_on = False
+    score.game_over()
+
+
+  #Detect collision with tail
+  for i in snake.snakes[1:]:
+    if snake.snakes[0].distance(i) < 10:
+      game_is_on = False
+      score.game_over()
     
-  
     
 
 

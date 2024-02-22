@@ -15,18 +15,24 @@ class Snake:
     self.snakes = []
     self.create_snake()
     
-
-
   def create_snake(self):
-    for i in COORDINATES:      
-      new_segment = Turtle()    
-      new_segment.shape("square")
-      new_segment.color("white")
-      new_segment.penup()
-      new_segment.goto(i)    
-      self.snakes.append(new_segment)
+    for i in COORDINATES:
+      self.add_segment(i)
 
-
+  def add_segment(self, position):
+    new_segment = Turtle()    
+    new_segment.shape("square")
+    new_segment.color("white")
+    new_segment.penup()
+    new_segment.goto(position)    
+    self.snakes.append(new_segment)
+        
+  def extend(self):
+    # add a new segment to the snake
+    self.add_segment(self.snakes[-1].position())
+  
+  
+  
   def move(self):
     # creating 3 blocks and making them move
     # for segment in range(start=(len(snakes) - 1), stop = 0, step = -1)
