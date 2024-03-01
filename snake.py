@@ -14,25 +14,23 @@ class Snake:
     # we will create a new list called 'snakes'. No need to make one outside the class.
     self.snakes = []
     self.create_snake()
-    
+
   def create_snake(self):
     for i in COORDINATES:
       self.add_segment(i)
 
   def add_segment(self, position):
-    new_segment = Turtle()    
+    new_segment = Turtle()
     new_segment.shape("square")
     new_segment.color("white")
     new_segment.penup()
-    new_segment.goto(position)    
+    new_segment.goto(position)
     self.snakes.append(new_segment)
-        
+
   def extend(self):
     # add a new segment to the snake
     self.add_segment(self.snakes[-1].position())
-  
-  
-  
+
   def move(self):
     # creating 3 blocks and making them move
     # for segment in range(start=(len(snakes) - 1), stop = 0, step = -1)
@@ -42,22 +40,24 @@ class Snake:
       self.snakes[segment].goto(new_x, new_y)
     self.snakes[0].forward(MOVE_DISTANCE)
 
+  def snake_reset(self):
+    for i in self.snakes:
+      i.goto(1000, 1000)
+    self.snakes.clear()
+    self.create_snake()
 
-  def up(self):    
+  def up(self):
     if self.snakes[0].heading() != DOWN:
       self.snakes[0].setheading(UP)
 
-  def down(self):    
+  def down(self):
     if self.snakes[0].heading() != UP:
       self.snakes[0].setheading(DOWN)
 
-  def right(self):    
+  def right(self):
     if self.snakes[0].heading() != LEFT:
       self.snakes[0].setheading(RIGHT)
 
-  def left(self):    
+  def left(self):
     if self.snakes[0].heading() != RIGHT:
       self.snakes[0].setheading(LEFT)
-    
-
-
